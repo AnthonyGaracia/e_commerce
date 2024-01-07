@@ -1,0 +1,67 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: grey;
+    padding: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.navBox {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.prodBox {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 200px; height:125px;
+    }
+.orderBox {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   margin-left: 15px;
+   }
+.cartBox{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   margin-left: 15px;
+   width: 200px; height:125px;
+   
+   
+    
+}
+.prodPix {
+    width: 175px; height: 100px;
+    }
+li {
+    list-style: none;
+
+}  
+button {
+    width: 175px; height: 25px;
+    text-align: left;
+    font-weight: bold;
+} 
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 200px; height: 25px;
+    background-color: #3EB489;
+    color: whitesmoke;
+    justify-content: space-around;
+    padding: 1rem;
+    margin-left: 50px;
+} 
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 50px;
+}
+h1{
+    color:#3EB489;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+

@@ -26,11 +26,11 @@ const fetchProducts = async()=> {
 
 const createProduct = async(product)=> {
   const SQL = `
-    INSERT INTO products (id, name, price, description)
-    VALUES($1, $2, $3, $4)
+    INSERT INTO products (id, name, price, description, img)
+    VALUES($1, $2, $3, $4, $5)
     RETURNING *
   `;
-  const response = await client.query(SQL, [ uuidv4(), product.name, product.price, product.description]);
+  const response = await client.query(SQL, [ uuidv4(), product.name, product.price, product.description, product.img]);
   return response.rows[0];
 };
 
@@ -125,7 +125,8 @@ const seed = async()=> {
       created_at TIMESTAMP DEFAULT now(),
       name VARCHAR(100) UNIQUE NOT NULL,
       price INTEGER,
-      description VARCHAR(900)
+      description VARCHAR(900),
+      img VARCHAR(900)
       
       
     );
@@ -148,10 +149,10 @@ const seed = async()=> {
   `;
   await client.query(SQL);
   const [foo, bar, bazz, quq] = await Promise.all([
-    createProduct({ name: 'foo', price: 25, description: 'blah'}),
-    createProduct({ name: 'bar', price: 30, description: 'blah' }),
-    createProduct({ name: 'bazz', price: 15, description: 'blah' }),
-    createProduct({ name: 'quq', price: 60, description: 'blah' }),
+    createProduct({ name: 'Blank 90 min Memorex', price: 2, description: '', img:'https://i.redd.it/7ei4i25b54z01.jpg'}),
+    createProduct({ name: 'Blank 30 min Loop', price: 5, description: '', img:'https://psap.library.illinois.edu/assets/audiocassette-ucla-1500@2x-8870b8a1c639a92c73739fda8dbed29bb91dfe06f975f5507977011766e4d075.jpg'}),
+    createProduct({ name: 'Blank 90 min TDK', price: 1, description: '',img:'https://www.telegraph.co.uk/content/dam/men/2016/02/26/cassettealamy_trans_NvBQzQNjv4BqMYWXqPlKWtx9ElOI9pPj84TbQKgKpEuQJDt5A4g93-k.jpg'}),
+    createProduct({ name: 'Blank 15 min Loop', price: 3, description: '',img:'https://www.musicboxspa.it/wp-content/uploads/2021/07/MB-RETRO.jpg'}),
   ]);
   let orders = await fetchOrders();
   let cart = orders.find(order => order.is_cart);

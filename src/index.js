@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import axios from 'axios';
-import { Link, HashRouter, Routes, Route } from 'react-router-dom';
+import { Link, HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+//import Nav from './Nav';
 import Products from './Products';
 import Orders from './Orders';
 import Cart from './Cart';
@@ -10,6 +11,12 @@ const App = ()=> {
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [lineItems, setLineItems] = useState([]);
+
+  const [user, setUser] = useState({})
+
+  const location = useLocation();
+  const {pathname} = location;
+  
 
   useEffect(()=> {
     const fetchData = async()=> {
@@ -81,13 +88,19 @@ const App = ()=> {
 
   return (
     <div>
+      <h1>BLANK tape</h1>
       <nav>
-        <Link to='/products'>Products ({ products.length })</Link>
-        <Link to='/orders'>Orders ({ orders.filter((order) => {return !order.is_cart}).length })</Link>
-        <Link to='/cart'>Cart ({ cartCount })</Link>
-      </nav>
+        <Link className="navBox" to='/products'>Products ({ products.length })</Link>
+        <Link className="navBox" to='/orders'>Orders ({ orders.filter((order) => {return !order.is_cart}).length })</Link>
+        <Link className="navBox" to='/cart'>Cart ({ cartCount })</Link>
+     </nav>
+   
+   
+      
+      
+      
       <div>
-        <Products
+        <Products 
           products={ products }
           cartItems = { cartItems }
           createLineItem = { createLineItem }

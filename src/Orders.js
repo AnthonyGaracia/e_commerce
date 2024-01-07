@@ -9,6 +9,7 @@ const Orders = ({ orders, products, lineItems })=> {
           orders.filter(order => !order.is_cart).map( order => {
             const orderLineItems = lineItems.filter(lineItem => lineItem.order_id === order.id);
             return (
+              <div className="orderBox">
               <li key={ order.id }>
                 ({ new Date(order.created_at).toLocaleString() })
                 <ul>
@@ -25,6 +26,7 @@ const Orders = ({ orders, products, lineItems })=> {
                   }
                 </ul>
               </li>
+              </div>
             );
           })
         }
