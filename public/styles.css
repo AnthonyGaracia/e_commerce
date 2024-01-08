@@ -44,6 +44,11 @@ button {
     text-align: left;
     font-weight: bold;
 } 
+.cartBtn {
+    margin-left: 100px;
+    width: 175px; height: 25px;
+}
+
 h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     width: 200px; height: 25px;

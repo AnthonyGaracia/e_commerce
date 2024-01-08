@@ -88,7 +88,7 @@ const App = ()=> {
 
   return (
     <div>
-      <h1>BLANK tape</h1>
+      <h1>BLANK tape Co.</h1>
       <nav>
         <Link className="navBox" to='/products'>Products ({ products.length })</Link>
         <Link className="navBox" to='/orders'>Orders ({ orders.filter((order) => {return !order.is_cart}).length })</Link>

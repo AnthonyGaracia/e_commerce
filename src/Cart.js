@@ -4,28 +4,29 @@ const Cart = ({ updateOrder, removeFromCart, lineItems, cart, products })=> {
   return (
     <div>
       <h2>Cart</h2>
-      <div className="cartBox">
+      <div >
       <ul>
         {
           lineItems.filter((lineItem) => {return lineItem.order_id === cart.id}).map( lineItem => {
             const product = products.find(product => product.id === lineItem.product_id) || {};
             return (
               
-              <li key={ lineItem.id }>
+              <li className="cartBox" key={ lineItem.id }>
                 { product.name }
                 ({ lineItem.quantity })
                 <button onClick={ ()=> removeFromCart(lineItem)}>Remove From Cart</button>
+                {
+        lineItems.filter((lineItem) => {return lineItem.order_id === cart.id }).length ? <button classname="cartBtn" onClick={()=> {
+          updateOrder({...cart, is_cart: false });
+        }}>Create Order</button>: null
+      }
               </li>
               
             );
           })
         }
       </ul>
-      {
-        lineItems.filter((lineItem) => {return lineItem.order_id === cart.id }).length ? <button onClick={()=> {
-          updateOrder({...cart, is_cart: false });
-        }}>Create Order</button>: null
-      }
+     
       </div>
     </div>
   );

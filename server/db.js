@@ -153,6 +153,7 @@ const seed = async()=> {
     createProduct({ name: 'Blank 30 min Loop', price: 5, description: '', img:'https://psap.library.illinois.edu/assets/audiocassette-ucla-1500@2x-8870b8a1c639a92c73739fda8dbed29bb91dfe06f975f5507977011766e4d075.jpg'}),
     createProduct({ name: 'Blank 90 min TDK', price: 1, description: '',img:'https://www.telegraph.co.uk/content/dam/men/2016/02/26/cassettealamy_trans_NvBQzQNjv4BqMYWXqPlKWtx9ElOI9pPj84TbQKgKpEuQJDt5A4g93-k.jpg'}),
     createProduct({ name: 'Blank 15 min Loop', price: 3, description: '',img:'https://www.musicboxspa.it/wp-content/uploads/2021/07/MB-RETRO.jpg'}),
+    
   ]);
   let orders = await fetchOrders();
   let cart = orders.find(order => order.is_cart);
